@@ -17,9 +17,14 @@
         android:background="#FFFFFF">
 
         <TextView
+            android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Hello world"
+            android:singleLine="true"
+            android:scrollHorizontally="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:ellipsize="marquee"
             android:textSize="50dp">
         </TextView>
     </LinearLayout>
@@ -30,40 +35,51 @@
         android:layout_marginBottom="25dp"
         android:orientation="vertical">
         <EditText
+            android:id="@+id/ChangeText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            ></EditText>
+            android:background="#FFFFFF">
+        </EditText>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginBottom="25dp">
+
         <Button
+            android:id="@+id/left"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-        </Button>
+            android:layout_weight="1"
+            android:text="left"></Button>
+
         <Button
+            android:id="@+id/right"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-        </Button>
+            android:layout_weight="1"
+            android:text="RIGHT"></Button>
+
         <Button
+            android:id="@+id/stop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-        </Button>
+            android:layout_weight="1"
+            android:text="STOP"></Button>
+
         <Button
+            android:id="@+id/minus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-        </Button>
+            android:layout_weight="1"
+            android:text="MINUS"></Button>
+
         <Button
+            android:id="@+id/plus"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
-        </Button>
+            android:layout_weight="1"
+            android:text="PLUS"></Button>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,47 +88,50 @@
         android:weightSum="1"
         android:orientation="horizontal"
         >
+
         <Button
+            android:id="@+id/text_color"
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_weight="0.00005"
             android:text="Text Color"
-            android:textSize="15dp">
-        </Button>
+            android:textSize="15dp"></Button>
+
         <Button
+            android:id="@+id/blink"
             android:layout_width="80dp"
             android:layout_height="match_parent"
             android:layout_weight="0.00005"
             android:text="BLINK"
-            android:textSize="20dp">
-        </Button>
+            android:textSize="20dp"></Button>
 
         <SeekBar
+            android:id="@+id/speed"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="0.9999"
-            android:max="100"
-            android:minWidth="400dp"
             android:background="#ffffff"
-            >
-        </SeekBar>
+            android:max="100"
+            android:minWidth="400dp"></SeekBar>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
+
         <Button
+            android:id="@+id/back_color"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_marginRight="100dp"
             android:text="BACK COLOR"
-            android:textSize="20dp">
-        </Button>
+            android:textSize="20dp"></Button>
+
         <Button
+            android:id="@+id/start"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:text="START"
-            android:textSize="40dp">
-        </Button>
+            android:textSize="40dp"></Button>
     </LinearLayout>
 </LinearLayout>
