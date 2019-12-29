@@ -1,12 +1,18 @@
 package com.example.SK_20191214;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -18,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     Button left,right,plus,minus;
     EditText TextEditView;
     int TextSize = 3;
+    Animation animationToLeft,animationToRight,animationToLeftFirst,animationToRightFirst;
+    AnimationSet animationSetLeft,animationSetRight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +50,37 @@ public class MainActivity extends AppCompatActivity {
         right.setOnClickListener(ButtonMove);
 
         TextEditView.addTextChangedListener(TextChange);
+
+        int locationX = textView.getWidth();
+        int locationY = textView.getHeight();
+
+        animationToLeftFirst = new TranslateAnimation(locationX/2,-800,0,0);
+        animationToLeftFirst.setDuration(6000);
+
+        animationToRightFirst = new TranslateAnimation(locationX/2,1200,0,0);
+        animationToRightFirst.setDuration(6000);
+
+        animationToLeft = new TranslateAnimation(1200,-800,0,0);
+        animationToLeft.setDuration(12000);
+        animationToLeft.setRepeatMode(Animation.RESTART);
+        animationToLeft.setRepeatCount(Animation.INFINITE);
+
+        animationToRight = new TranslateAnimation(-800,1200, 0, 0);
+        animationToRight.setDuration(12000);
+        animationToRight.setRepeatMode(Animation.RESTART);
+        animationToRight.setRepeatCount(Animation.INFINITE);
+
+        animationSetLeft = new AnimationSet(false);
+        animationSetRight = new AnimationSet(false);
+        animationSetLeft.addAnimation(animationToLeftFirst);
+        animationSetLeft.addAnimation(animationToLeft);
+
+
+
+
+        animationSetRight.addAnimation(animationToRightFirst);
+        animationSetRight.addAnimation(animationToRight);
+
     }
 
     class ButtonMove implements View.OnClickListener{
@@ -50,14 +89,12 @@ public class MainActivity extends AppCompatActivity {
             int id = view.getId();
             switch (id){
                 case R.id.left:
-                    textView.setSingleLine();
-                    textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-                    textView.setSelected(true);
+                    textView.setGravity(Gravity.CENTER);
+                    textView.startAnimation(animationSetLeft);
                     break;
                 case R.id.right:
-                    textView.setSingleLine();
-                    textView.setEllipsize(TextUtils.TruncateAt.MARQUEE);
-                    textView.setSelected(true);
+                    textView.setGravity(Gravity.CENTER);
+                    textView.startAnimation(animationSetRight);
                     break;
             }
         }

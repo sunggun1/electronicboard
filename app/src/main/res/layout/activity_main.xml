@@ -19,12 +19,9 @@
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello world"
+            android:layout_height="wrap_content"
             android:singleLine="true"
-            android:scrollHorizontally="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:ellipsize="marquee"
+            android:gravity="center"
             android:textSize="50dp">
         </TextView>
     </LinearLayout>
@@ -51,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="left"></Button>
+            android:text="LEFT"></Button>
 
         <Button
             android:id="@+id/right"
