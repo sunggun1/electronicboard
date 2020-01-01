@@ -14,12 +14,13 @@
         android:layout_marginTop="25dp"
         android:layout_marginBottom="25dp"
         android:orientation="vertical"
+        android:id="@+id/textViewLinearLayout"
         android:background="#FFFFFF">
 
         <TextView
             android:id="@+id/text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:singleLine="true"
             android:gravity="center"
             android:textSize="50dp">
