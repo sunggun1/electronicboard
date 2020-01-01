@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -27,7 +28,7 @@ import static android.text.TextUtils.TruncateAt.MARQUEE;
 
 public class MainActivity extends AppCompatActivity {
     TextView textView;
-    Button left, right, plus, minus, textColor, backColor, blinkButton, stopButton;
+    Button left, right, plus, minus, textColor, backColor, blinkButton, stopButton,startButton;
     EditText TextEditView;
     int TextSize = 3;
     int textColorValue, backColorValue;
@@ -107,6 +108,9 @@ public class MainActivity extends AppCompatActivity {
 
         stopButton = (Button) findViewById(R.id.stop);
         stopButton.setOnClickListener(new BlinkStop());
+
+        startButton = (Button)findViewById(R.id.start);
+        startButton.setOnClickListener(new Start());
 
     }
 
@@ -250,6 +254,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             blink();
+        }
+    }
+    class Start implements View.OnClickListener{
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getApplicationContext(),StartActivity.class);
+            startActivity(intent);
+
         }
     }
 }
